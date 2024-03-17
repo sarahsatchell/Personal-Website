@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Ambit</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body ng-controller="MyController">
+	<div class="example-chat_two l-demo-container">
+		<h1 class="center_div_two">Ambit</h1>
+
+		<ul class="example_messages">
+			<li class="list_of_messages" ng-repeat="msg in messages" ng-class="{me: msg.sender == user, 'someone-else': msg.sender !== user}">
+				<div>
+					<p class="example_chat_username">{{ msg.sender }}</p>
+					<p class="foo example_chat_message"
+					   ng-class="{me: msg.sender == user,'someone-else': msg.sender !== user}">{{ msg.text }}</p>
+				</div>
+			</li>
+			<div class="message_input_center_div_center">
+				<input ng-model="msg" ng-keydown="addMessage($event)" type="text" id="messageInput"  placeholder="Type a message..." class="message_text_box">
+			</div>
+		</ul>
+
+	</div>
+
+	<script>
+	var myApp = angular.module("myApp", ["firebase"]);
+
+	myApp.controller("MyController", ["$scope", "$firebaseArray", '$rootScope',
+		function($scope, $firebaseArray, $rootScope) {
+		  //CREATE A FIREBASE REFERENCE
+		  var ref = new Firebase("https://ambit.firebaseio.com/messages");
+		  var ref_users = new Firebase("https://ambit.firebaseio.com/users");
+
+		var url = window.location.href;
+	       var name = decodeURI(url.substring(url.indexOf('?user=') + 6));
+     	$scope.user = name;
+
+
+			// GET MESSAGES AS AN ARRAY
+			$scope.messages = $firebaseArray(ref);
+			$scope.users = $firebaseArray(ref_users);
+
+		  //ADD MESSAGE METHOD
+		  $scope.addMessage = function(e) {
+
+			//LISTEN FOR RETURN KEY
+			if (e.keyCode === 13 && $scope.msg) {
+				var newChildRef = ref.push();
+				var id = newChildRef.key();
+
+				$scope.messages.$add({
+					sender: name,
+					imageUrl: "",
+					text: $scope.msg,
+					id: id
+				});
+
+				//RESET MESSAGE
+				$scope.msg = "";
+			}
+		}
+	}
+	]);
+	</script>
+
+</body>
+</html>

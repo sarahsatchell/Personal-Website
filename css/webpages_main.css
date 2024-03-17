@@ -1,0 +1,81 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Roboto", "Roboto Condensed", sans-serif;
+	padding: 80px 60px 0;
+	max-width: 900px;
+	margin: 0 auto;
+	background-color: #ecf0f1;
+}
+a {
+	color: #fff;
+	text-decoration: none;
+}
+.title {
+	text-align: center;
+}
+.title a {
+	color: #000;
+	text-decoration: none;
+}
+.title a:focus,
+.title a:hover {
+	color: #000;
+	text-decoration: none;
+}
+.title h1 {
+	font-size: 56px;
+	font-weight: 500;
+	color: #212121;
+	margin: 0;
+	line-height: 1.25;
+}
+.separator_line {
+	border-bottom: 2px solid #D3D3D3;
+	width: 200px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.div_centered {
+	text-align: center;
+	margin-top: 50px;
+}
+/*
+<div class="title">
+	<a href="..\">
+		<h1>EasyA Trimester</h1>
+	</a>
+</div>
+<div class="separator_line"></div>
+*/
+
+@media screen and (max-width: 600px) {
+	.title h1 {
+		font-size: 45px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	body {
+		padding: 30px 20px 0;
+	}
+	.title h1 {
+		font-size: 40px;
+	}
+	.separator_line {
+		width: 150px;
+	}
+}
+@media screen and (max-width: 400px) {
+	body {
+		padding: 30px 10px 0;
+	}
+	.title h1 {
+		font-size: 32px;
+	}
+	.separator_line {
+		width: 100px;
+	}
+}
