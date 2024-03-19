@@ -1,3 +1,3 @@
 Personal Website
 ~~~~~~~~~~~~~~~~~
-sarahsatchell.io
+sarahsatchell.github.io
