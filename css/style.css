@@ -199,7 +199,7 @@ h5 {
 }
 
 .btn-circle:hover {
-	color: #000000;
+	color: #ecb4ee;
 	border-color: #000000;
 }
 
@@ -462,7 +462,7 @@ h5 {
 		}
 
 		.html {
-			width: 30%;
+			width: 58%;
 			-moz-animation: html 2s ease;
 			-webkit-animation: html 2s ease;
 		}
@@ -517,6 +517,20 @@ h5 {
 			100% { width: 70%;  }
 		}
 
+		.figma {
+			width: 75%;
+			-moz-animation: figma 2s ease;
+			-webkit-animation: figma 2s ease;
+		}
+		@-moz-keyframes figma {
+			0%   { width: 0px;  }
+			100% { width: 90%;  }
+		}
+		@-webkit-keyframes figma {
+			0%   { width: 0px;  }
+			100% { width: 90%;  }
+		}
+
 
 		.matlab {
 			width: 65%;
@@ -562,6 +576,34 @@ h5 {
 
 		.rstud {
 			width: 70%;
+			-moz-animation: rstud 2s ease;
+			-webkit-animation: rstud 2s ease;
+		}
+		@-moz-keyframes rstud {
+			0%   { width: 0px;  }
+			100% { width: 70%;  }
+		}
+		@-webkit-keyframes rstud {
+			0%   { width: 0px;  }
+			100% { width: 70%;  }
+		}
+
+		.cypress {
+			width: 80%;
+			-moz-animation: rstud 2s ease;
+			-webkit-animation: rstud 2s ease;
+		}
+		@-moz-keyframes rstud {
+			0%   { width: 0px;  }
+			100% { width: 70%;  }
+		}
+		@-webkit-keyframes rstud {
+			0%   { width: 0px;  }
+			100% { width: 70%;  }
+		}
+
+		.jest {
+			width: 35%;
 			-moz-animation: rstud 2s ease;
 			-webkit-animation: rstud 2s ease;
 		}
